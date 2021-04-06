@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "593874221588",
+    "project_id": "alicorn-ff5a3",
+    "storage_bucket": "alicorn-ff5a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593874221588:android:47fd629f11ebfa36d64501",
+        "android_client_info": {
+          "package_name": "org.techtown.alicorn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593874221588-2f6gfpkm43dshr4311b62l6jmtu373o4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.techtown.alicorn",
+            "certificate_hash": "0d8a84f8be9f4136d7c8d64278c98977eadd3d06"
+          }
+        },
+        {
+          "client_id": "593874221588-7mqldmalbs82t54kd1pdoaga6e7g4quv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-EytXXNN26BQabBACh7xUUFYOtSFJ4H4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "593874221588-7mqldmalbs82t54kd1pdoaga6e7g4quv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
