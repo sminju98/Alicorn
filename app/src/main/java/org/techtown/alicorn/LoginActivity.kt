@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signinEmail() {
-        auth?.createUserWithEmailAndPassword(
+        auth?.signInWithEmailAndPassword(
             binding.emailEditText.text.toString(),
             binding.passwordEditText.text.toString()
         )
