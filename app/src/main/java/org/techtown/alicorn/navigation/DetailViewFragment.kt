@@ -73,11 +73,8 @@ class DetailViewFragment : Fragment(){
             //내용 설명
             holder.binding.detailviewitemExplainTextview.text = contentDTOs!![position].explain
 
-            //좋아요
-            holder.binding.detailviewitemFavoritecounterTextview.text = "좋아요 " + contentDTOs!![position].favoriteCount
-
             //ProfileImage
-            Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl).into(holder.binding.detailviewitemProfileImage)
+           // Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl).into(holder.binding.detailviewitemProfileImage)
 1
         }
 
