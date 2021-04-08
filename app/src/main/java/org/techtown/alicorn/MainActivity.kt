@@ -55,5 +55,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         setContentView(binding.root)
         binding.bottomNavigation.setOnNavigationItemSelectedListener(this)
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),1)
+
+        //디폴트 화면
+        binding.bottomNavigation.selectedItemId = R.id.actionHome
     }
 }

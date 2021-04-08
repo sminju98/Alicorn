@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/detailviewitemProfileImage"
+            android:src="@mipmap/ic_launcher"
+            android:layout_margin="7.5dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"/>
+        <TextView
+            android:text="User name"
+            android:id="@+id/detailviewitemProfileTextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/detailviewitemImageviewContent"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"/>
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/detailviewitemFavoriteImageview"
+            android:src="@drawable/ic_favorite_border"
+            android:layout_width="35dp"
+            android:layout_height="35dp"/>
+
+        <ImageView
+            android:id="@+id/detailviewitemCommentImageview"
+            android:src="@drawable/ic_chat_black"
+            android:layout_width="35dp"
+            android:layout_height="35dp"/>
+
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/detailviewitemFavoritecounterTextview"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="좋아요 0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/detailviewitemExplainTextview"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="내용설명"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

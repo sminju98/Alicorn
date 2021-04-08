@@ -69,7 +69,7 @@ class AddPhotoActivity : AppCompatActivity() {
         //promise method
         storageRef?.putFile(photoUri!!)?.continueWithTask {
             return@continueWithTask storageRef.downloadUrl
-        }?.addOnCompleteListener { uri ->
+        }?.addOnSuccessListener { uri ->
             var contentDTO = ContentDTO()
 
             //이미지 다운로드 주소 삽입
