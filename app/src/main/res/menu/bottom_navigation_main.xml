@@ -7,19 +7,19 @@
         android:enabled="true"
         android:title="@string/home"/>
     <item
-        android:id="@+id/actionSearch"
-        android:icon="@drawable/ic_search"
+        android:id="@+id/actionChat"
+        android:icon="@drawable/ic_chat"
         android:enabled="true"
-        android:title="@string/search"/>
+        android:title="상담"/>
     <item
-        android:id="@+id/actionAddPhoto"
-        android:icon="@drawable/ic_add_a_photo"
+        android:id="@+id/actionRecord"
+        android:icon="@drawable/ic_record"
         android:enabled="true"
-        android:title="@string/gallery"/>
+        android:title="의료기록"/>
     <item
         android:id="@+id/actionAccount"
-        android:icon="@drawable/ic_account"
+        android:icon="@drawable/ic_mypage"
         android:enabled="true"
-        android:title="@string/account"/>
+        android:title="마이페이지"/>
 
 </menu>

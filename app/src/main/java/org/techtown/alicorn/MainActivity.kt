@@ -1,48 +1,39 @@
 package org.techtown.alicorn
 
-import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import org.techtown.alicorn.databinding.ActivityMainBinding
-import org.techtown.alicorn.navigation.AddPhotoActivity
-import org.techtown.alicorn.navigation.DetailViewFragment
-import org.techtown.alicorn.navigation.GridFragment
-import org.techtown.alicorn.navigation.UserFragment
-import java.util.jar.Manifest
+import org.techtown.alicorn.navigation.*
+
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
-        when(item.itemId){
+        when (item.itemId) {
             R.id.actionHome -> {
-                supportFragmentManager.beginTransaction().replace(R.id.mainContent,DetailViewFragment()).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.mainContent, HomeFragment()).commit()
                 return true
             }
         }
-        when(item.itemId){
-            R.id.actionSearch -> {
-                supportFragmentManager.beginTransaction().replace(R.id.mainContent,GridFragment()).commit()
+        when (item.itemId) {
+            R.id.actionChat -> {
+                supportFragmentManager.beginTransaction().replace(R.id.mainContent, ChatFragment()).commit()
                 return true
             }
         }
-        when(item.itemId){
-            R.id.actionAddPhoto -> {
-                if(ContextCompat.checkSelfPermission(this,android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-                    startActivity(Intent(this,AddPhotoActivity::class.java))
-                }
+        when (item.itemId) {
+            R.id.actionRecord -> {
+                supportFragmentManager.beginTransaction().replace(R.id.mainContent, DetailViewFragment()).commit()
                 return true
             }
         }
-        when(item.itemId){
+        when (item.itemId) {
             R.id.actionAccount -> {
-                supportFragmentManager.beginTransaction().replace(R.id.mainContent, UserFragment()).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.mainContent, MyPageFragment()).commit()
                 return true
             }
         }
@@ -54,7 +45,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.bottomNavigation.setOnNavigationItemSelectedListener(this)
-        ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),1)
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+            1
+        )
 
         //디폴트 화면
         binding.bottomNavigation.selectedItemId = R.id.actionHome

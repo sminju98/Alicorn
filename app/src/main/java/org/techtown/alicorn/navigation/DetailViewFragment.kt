@@ -1,9 +1,12 @@
 package org.techtown.alicorn.navigation
 
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,13 +14,12 @@ import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
-import org.techtown.alicorn.R
+import org.techtown.alicorn.AddPhotoActivity
 import org.techtown.alicorn.databinding.FragmentDetailBinding
 import org.techtown.alicorn.databinding.ItemDetailBinding
 import org.techtown.alicorn.navigation.model.ContentDTO
 
 class DetailViewFragment : Fragment(){
-
     var firestore : FirebaseFirestore? = null
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,10 +28,17 @@ class DetailViewFragment : Fragment(){
     ): View? {
         var view = FragmentDetailBinding.inflate(inflater,container,false)
         firestore = FirebaseFirestore.getInstance()
+        //val currentUid =FirebaseAuth.getInstance().currentUser.uid
+
+        view.button.setOnClickListener {
+            startActivity(Intent(getActivity(), AddPhotoActivity::class.java))
+        }
 
         view.detailviewfragmentRecyclerview.adapter = DetailViewRecyclerViewAdapter()
         view.detailviewfragmentRecyclerview.layoutManager = LinearLayoutManager(activity)
         return view.root
+
+
     }
 
     inner class DetailViewRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
@@ -38,7 +47,7 @@ class DetailViewFragment : Fragment(){
 
         init{
 
-            firestore?.collection("images")?.orderBy("timestamp")?.addSnapshotListener{value: QuerySnapshot?, error: FirebaseFirestoreException? ->
+            firestore?.collection("images")?.orderBy("timestamp")?.addSnapshotListener{ value: QuerySnapshot?, error: FirebaseFirestoreException? ->
                 contentDTOs.clear()
                 contentUidList.clear()
                 for(snapshot in value!!.documents){

@@ -1,4 +1,4 @@
-package org.techtown.alicorn.navigation
+package org.techtown.alicorn
 
 import android.app.Activity
 import android.content.Intent
