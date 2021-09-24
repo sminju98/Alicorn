@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
         }
 
         view.infoButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://drugunicorn.com"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=oFza9GkpIQc"))
             startActivity(intent)
         }
 

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/ic_arrow_back"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="355dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/search2" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="360dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/ic_search" />
+
+    <LinearLayout
+        android:id="@+id/division"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/imageView"
+        android:background="@color/colorDivision"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/doctor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/division"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/doctorNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/doctorImage"
+            android:padding="10dp"
+            android:text="송민주"
+            android:textColor="#000000"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/clinicNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/doctorNameTextView"
+            android:layout_toRightOf="@+id/doctorImage"
+            android:padding="10dp"
+            android:text="알리콘의원"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/division1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/doctorNameTextView"
+            android:layout_toRightOf="@+id/doctorImage"
+            android:background="@color/colorDivision"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/doctorImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/doctor" />
+
+        <LinearLayout
+            android:id="@+id/division2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/doctorImage"
+            android:background="#000000"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/doctor"
+        android:layout_alignParentLeft="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/explainTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:padding="25dp"
+                android:text="최선을 다하는 알리콘 의원입니다"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/explainContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ExplainTitle"
+                android:padding="30dp"
+                android:text="우리 병원은 최상의 인재풀을 보유하고 있습니다.\n \n성심성의껏 진료하는 원장, 송민주"
+                android:textColor="#000000"
+                android:textSize="23sp" />
+
+
+        <LinearLayout
+            android:id="@+id/division3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/explainContent"
+            android:background="#000000"
+            android:orientation="horizontal"/>
+
+            <TextView
+                android:id="@+id/keywordTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ExplainTitle"
+                android:padding="20dp"
+                android:text="진료과목"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+
+            <LinearLayout
+                android:id="@+id/division4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/explainContent"
+                android:background="#000000"
+                android:orientation="horizontal"/>
+
+            <TextView
+                android:id="@+id/keyword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ExplainTitle"
+                android:padding="30dp"
+                android:text="#피부과 #내과 #가정의학과"
+                android:textColor="#000000"
+                android:textSize="23sp" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

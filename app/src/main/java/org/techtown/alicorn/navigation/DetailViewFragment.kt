@@ -1,7 +1,6 @@
 package org.techtown.alicorn.navigation
 
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -84,7 +83,7 @@ class DetailViewFragment : Fragment(){
 
             //ProfileImage
            // Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl).into(holder.binding.detailviewitemProfileImage)
-1
+
         }
 
     }

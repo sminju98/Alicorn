@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/doctorNameTextView"
+        android:layout_alignParentTop="true"
+        android:padding="10dp"
+        android:text="송민주"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/doctorImage"/>
+    <TextView
+        android:id="@+id/clinicNameTextView"
+        android:text="알리콘의원"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/doctorNameTextView"
+        android:layout_toRightOf="@+id/doctorImage"/>
+
+    <LinearLayout
+        android:id="@+id/division"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_toRightOf="@+id/doctorImage"
+        android:layout_below="@+id/doctorNameTextView"
+        android:background="@color/colorDivision"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/doctorImage"
+        android:src="@drawable/doctor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <LinearLayout
+        android:id="@+id/division2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/doctorImage"
+        android:background="#000000"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+
+</RelativeLayout>
