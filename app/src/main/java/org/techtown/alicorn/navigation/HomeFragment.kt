@@ -1,62 +1,84 @@
 package org.techtown.alicorn.navigation
 
-import android.content.Intent
-import android.net.Uri
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import org.techtown.alicorn.AddPhotoActivity
-import org.techtown.alicorn.SearchActivity
+import android.view.View
+import android.os.Bundle
+
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import org.techtown.alicorn.adapter.DoctorAdapter
 import org.techtown.alicorn.databinding.FragmentHomeBinding
+import org.techtown.alicorn.navigation.model.DoctorDTO
+
 
 class HomeFragment : Fragment() {
+    private lateinit var doctorDB : DatabaseReference
+    private lateinit var adapter : DoctorAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        var view = FragmentHomeBinding.inflate(inflater, container, false)
+    private val doctorList = mutableListOf<DoctorDTO>()
+    private val listener = object : ChildEventListener{
+        override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
 
-        view.SearchButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
+            val doctorDTO = snapshot.getValue(DoctorDTO::class.java)
+
+            doctorDTO ?:return
+
+            doctorList.add(doctorDTO)
+            adapter.submitList(doctorList)
         }
 
-        view.Guidebutton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://drugunicorn.com"))
-            startActivity(intent)
+        override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
         }
 
-        view.beautyButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
+        override fun onChildRemoved(snapshot: DataSnapshot) {
         }
 
-        view.skinButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
+        override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
         }
 
-        view.dietButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
-        }
-        view.lightButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
+        override fun onCancelled(error: DatabaseError) {
         }
 
-        view.oldButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
-        }
 
-        view.mindButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
-        }
-
-        view.infoButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=oFza9GkpIQc"))
-            startActivity(intent)
-        }
-
-        return view.root
     }
+
+    private var binding:FragmentHomeBinding? = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
+        super.onViewCreated(view,savedInstanceState)
+
+        val fragmentHomeBinding = FragmentHomeBinding.bind(view)
+        binding = fragmentHomeBinding
+
+        doctorDB = Firebase.database.reference.child("doctor")
+        adapter = DoctorAdapter()
+
+        adapter.submitList(mutableListOf<DoctorDTO>().apply{
+
+        add(DoctorDTO("송민주","테스트병원","gs://alicorn-ff5a3.appspot.com/doctorProfileImages/증명사진.jpg"))
+
+       })
+
+        doctorDB.addChildEventListener(listener)
+
+
+        fragmentHomeBinding.doctorRecyclerView.adapter = DoctorAdapter()
+        fragmentHomeBinding.doctorRecyclerView.layoutManager = LinearLayoutManager(context)
+
+
+
+    }
+
+    override fun onResume() {
+        doctorList.clear()
+        super.onResume()
+
+        adapter.notifyDataSetChanged()
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        doctorDB.removeEventListener(listener)
+    }
+
 }

@@ -72,6 +72,7 @@ class LoginActivity : AppCompatActivity() {
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     //로그인 성공
+                    Toast.makeText(this, "로그인 성공", Toast.LENGTH_LONG).show()
                     moveMainpage(task.result?.user)
                 } else {
                     //로그인 실패, 에러메세지

@@ -20,12 +20,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
         }
         when (item.itemId) {
-            R.id.actionChat -> {
-                supportFragmentManager.beginTransaction().replace(R.id.mainContent, ChatFragment()).commit()
-                return true
-            }
-        }
-        when (item.itemId) {
             R.id.actionRecord -> {
                 supportFragmentManager.beginTransaction().replace(R.id.mainContent, DetailViewFragment()).commit()
                 return true
@@ -52,6 +46,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         )
 
         //디폴트 화면
-        binding.bottomNavigation.selectedItemId = R.id.actionHome
+        binding.bottomNavigation.selectedItemId = R.id.actionAccount
     }
 }

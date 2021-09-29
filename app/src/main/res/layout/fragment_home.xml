@@ -4,107 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
     android:orientation="vertical">
 
-
-    <Button
-        android:id="@+id/SearchButton"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/doctorRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/search"
-        android:text="질병, 부위 등을 검색하세요"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="24sp" />
-
-    <Button
-        android:id="@+id/Guidebutton"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_below="@id/SearchButton"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/background"
-        android:text="서비스 이용법"
-        android:textColor="@color/colorWhite"
-        android:textSize="34sp" />
-
-    <Button
-        android:id="@+id/beautyButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_below="@id/Guidebutton"
-        android:layout_marginLeft="50dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="미용의료" />
-
-    <Button
-        android:id="@+id/skinButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_below="@id/Guidebutton"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@+id/beautyButton"
-        android:background="@color/colorPrimaryDark"
-        android:textSize="15sp"
-        android:text="피부질환" />
-
-    <Button
-        android:id="@+id/dietButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_below="@id/Guidebutton"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="40dp"
-        android:layout_toRightOf="@+id/skinButton"
-        android:background="@color/colorPrimaryDark"
-        android:text="다이어트" />
+        android:layout_height="match_parent" />
 
 
-    <Button
-        android:id="@+id/lightButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_below="@id/beautyButton"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="경증질환" />
-
-    <Button
-        android:id="@+id/oldButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_below="@id/beautyButton"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@+id/lightButton"
-        android:background="@color/colorPrimaryDark"
-        android:text="만성질환" />
-
-    <Button
-        android:id="@+id/mindButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_below="@id/beautyButton"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@+id/oldButton"
-        android:background="@color/colorPrimaryDark"
-        android:text="마음건강" />
-
-    <Button
-        android:id="@+id/infoButton"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="510dp"
-        android:background="@drawable/medicalinfo"/>
 
 </RelativeLayout>
-
