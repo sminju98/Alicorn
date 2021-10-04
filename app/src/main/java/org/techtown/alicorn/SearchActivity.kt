@@ -35,8 +35,11 @@ class SearchActivity : AppCompatActivity() {
         }
         binding.searchButton.setOnClickListener {
         }
-
+        binding.root.setOnClickListener{
+            startActivity(Intent(this,DoctorActivity::class.java))
+        }
     }
+
 
 
     inner class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
