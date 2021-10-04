@@ -17,7 +17,6 @@ import java.util.*
 
 class DoctorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDoctorBinding
-    var firestore : FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +25,6 @@ class DoctorActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Initiate
-        firestore = FirebaseFirestore.getInstance()
 
 
 

@@ -20,41 +20,17 @@ class HomeFragment : Fragment() {
     ): View? {
         var view = FragmentHomeBinding.inflate(inflater, container, false)
 
-        view.SearchButton.setOnClickListener {
+        view.searchButton.setOnClickListener {
             startActivity(Intent(getActivity(), SearchActivity::class.java))
         }
 
-        view.Guidebutton.setOnClickListener {
+        view.guideButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://drugunicorn.com"))
             startActivity(intent)
         }
 
-        view.beautyButton.setOnClickListener {
+        view.treatButton.setOnClickListener {
             startActivity(Intent(getActivity(), SearchActivity::class.java))
-        }
-
-        view.skinButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
-        }
-
-        view.dietButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
-        }
-        view.lightButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
-        }
-
-        view.oldButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
-        }
-
-        view.mindButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
-        }
-
-        view.infoButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=oFza9GkpIQc"))
-            startActivity(intent)
         }
 
         return view.root
