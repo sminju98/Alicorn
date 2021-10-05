@@ -27,10 +27,11 @@ class SearchActivity : AppCompatActivity() {
         binding.searchRecyclerView.layoutManager = LinearLayoutManager(this)
 
         binding.backButton.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
         }
         binding.searchButton.setOnClickListener {
-            }
+            startActivity(Intent(this,ReceiptActivity::class.java))
+        }
 
         }
 }

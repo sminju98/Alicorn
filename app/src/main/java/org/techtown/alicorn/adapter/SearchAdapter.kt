@@ -4,12 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ListAdapter
+import android.widget.Toast
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import org.techtown.alicorn.DoctorActivity
-import org.techtown.alicorn.MainActivity
+import org.techtown.alicorn.R
 import org.techtown.alicorn.databinding.ActivitySearchBinding
 import org.techtown.alicorn.databinding.ItemDoctorBinding
 import org.techtown.alicorn.firestore
