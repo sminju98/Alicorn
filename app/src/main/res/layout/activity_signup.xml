@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="43dp"
+        android:layout_height="39dp"
+        android:background="@drawable/ic_arrow_back" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="73dp"
+        android:layout_marginLeft="14dp"
+        android:textColor="#2c2929"
+        android:textSize="36sp"
+        android:textStyle="normal" />
+
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="34dp"
+        android:background="@drawable/rectangle_login"
+        android:hint="이메일"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="34dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/rectangle_login"
+        android:hint="비밀번호"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/emailSignupButton"
+        android:layout_width="335dp"
+        android:layout_height="58dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/radius_24dp_corner"
+        android:backgroundTint="#6782b7"
+        android:text="회원가입" />
+</LinearLayout>

@@ -4,7 +4,6 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@color/colorWhite"
 tools:context=".LoginActivity">
 
 
@@ -15,9 +14,9 @@ tools:context=".LoginActivity">
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="262dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginRight="153dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginEnd="157dp"
+        android:layout_marginRight="157dp"
         android:gravity="center_horizontal"
         android:letterSpacing="-0.04"
         android:text="로그인"
@@ -39,9 +38,10 @@ tools:context=".LoginActivity">
         android:layout_marginRight="20dp">
         <EditText
             android:id="@+id/emailEditText"
+            android:background="@drawable/rectangle_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email" />
+            android:hint="이메일" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -52,22 +52,24 @@ tools:context=".LoginActivity">
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password" />
+            android:background="@drawable/rectangle_login"
+            android:hint="비밀번호"
+            android:inputType="textPassword" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/emailSignupButton"
-        android:layout_width="335dp"
-        android:layout_height="58dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/radius_24dp_corner"
-        android:text="회원가입" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="20dp"
+            android:gravity="end"
+            android:textColor="#222222"
+            android:textSize="17sp"
+            android:textStyle="normal"
+            tools:text="아이디/비밀번호 찾기" />
 
 
     <Button
@@ -82,7 +84,20 @@ tools:context=".LoginActivity">
         android:textColor="@color/colorWhite"
         android:backgroundTint="#6782b7"
         android:background="@drawable/radius_24dp_corner"/>
-    <RelativeLayout
+
+
+        <Button
+            android:id="@+id/emailSignupButton"
+            android:layout_width="335dp"
+            android:layout_height="58dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/radius_24dp_corner"
+            android:text="회원가입" />
+
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

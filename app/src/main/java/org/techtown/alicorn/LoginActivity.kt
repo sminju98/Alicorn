@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
             signinEmail()
         }
         binding.emailSignupButton.setOnClickListener {
-            signupEmail()
+            startActivity(Intent(this,SignupActivity::class.java))
         }
         binding.googleLoginButton.setOnClickListener {
             //첫번째 단계

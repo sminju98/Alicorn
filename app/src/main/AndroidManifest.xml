@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Alicorn">
-        <activity android:name=".ReceiptActivity"></activity>
+        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".ReceiptActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".AddPhotoActivity" />
         <activity android:name=".MainActivity" />
