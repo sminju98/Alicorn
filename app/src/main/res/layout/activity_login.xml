@@ -1,91 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    tools:context=".LoginActivity">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/colorWhite"
+tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/signinLayout"
-        android:layout_alignParentStart="true"
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="40dp"
-        app:srcCompat="@drawable/logo_title"
-        android:layout_alignParentLeft="true" />
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginRight="153dp"
+        android:gravity="center_horizontal"
+        android:letterSpacing="-0.04"
+        android:text="로그인"
+        android:textColor="#2c2929"
+        android:textSize="36sp"
+        android:textStyle="normal" />
 
     <LinearLayout
-        android:id="@+id/signinLayout"
+    android:id="@+id/signinLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-
-        <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <EditText
+            android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:hint="@string/email" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/emailEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/email" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:hint="@string/password" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/passwordEditText"
-                android:inputType="textPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/password" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/emailSignupButton"
+        android:layout_width="335dp"
+        android:layout_height="58dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/radius_24dp_corner"
+        android:text="회원가입" />
 
-        <Button
-            android:id="@+id/emailSignupButton"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            android:text="이메일로 회원가입" />
-        <Button
-            android:id="@+id/emailLoginButton"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            android:text="@string/signin_email" />
 
-        <Button
+    <Button
+        android:id="@+id/emailLoginButton"
+        android:layout_width="335dp"
+        android:layout_height="58dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="로그인"
+        android:textColor="@color/colorWhite"
+        android:backgroundTint="#6782b7"
+        android:background="@drawable/radius_24dp_corner"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
+        <ImageButton
             android:id="@+id/googleLoginButton"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_width="92dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="0dp"
+            android:background="@drawable/radius_24dp_corner"
+            app:srcCompat="@drawable/googleg_standard_color_18"
+            android:layout_marginBottom="10dp"/>
+
+
+        <ImageButton
+            android:id="@+id/kakaoLoginButton"
+            android:layout_width="92dp"
+            android:layout_height="64dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="55dp"
-            android:background="@drawable/btn_signin_google"
-            android:text="@string/signin_google" />
+            android:layout_marginRight="50dp"
+            android:background="@drawable/radius_24dp_corner"
+            app:srcCompat="@drawable/googleg_standard_color_18"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="#f9e000"
+            android:layout_toRightOf="@+id/googleLoginButton"/>
 
-    </LinearLayout>
+    </RelativeLayout>
+
+
+
+</LinearLayout>
 
 </RelativeLayout>
