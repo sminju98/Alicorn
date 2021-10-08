@@ -20,7 +20,9 @@ class SearchActivity : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
 
         searchAdapter =  SearchAdapter(onItemClicked ={
-            startActivity(Intent(this, DoctorActivity::class.java))
+          val intent = Intent(this, DoctorActivity::class.java)
+            intent.putExtra("DOCTOR_ID",it.id?:"0")
+            startActivity(intent)
 
         })
         binding.searchRecyclerView.adapter = searchAdapter

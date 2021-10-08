@@ -12,7 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Alicorn">
-        <activity android:name=".SignupActivity"></activity>
+        <activity
+            android:name=".ReservationActivity"
+            android:label="@string/title_activity_reservation"
+            android:theme="@style/Theme.Alicorn.NoActionBar"></activity>
+        <activity android:name=".AgreeActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".DoctorActivity" />
         <activity android:name=".ReceiptActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".AddPhotoActivity" />

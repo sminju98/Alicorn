@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <Button
@@ -87,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/doctorImage"
             android:padding="10dp"
-            android:text="송민주"
+            tools:text="송민주"
             android:textColor="#000000"
             android:textSize="25sp" />
 
@@ -98,7 +99,7 @@
             android:layout_below="@+id/doctorNameTextView"
             android:layout_toRightOf="@+id/doctorImage"
             android:padding="10dp"
-            android:text="알리콘의원"
+            tools:text="알리콘의원"
             android:textSize="20sp" />
 
         <LinearLayout
@@ -116,7 +117,7 @@
             android:id="@+id/doctorImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/doctor"/>
+            tools:src="@drawable/doctor"/>
 
         <LinearLayout
             android:id="@+id/division2"

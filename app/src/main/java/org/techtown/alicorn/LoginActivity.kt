@@ -20,6 +20,7 @@ import org.techtown.alicorn.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+
     var auth: FirebaseAuth? = null
     var googleSignInClient : GoogleSignInClient?= null
     var GOOGLE_LOGIN_CODE = 9001
@@ -28,12 +29,13 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         auth = FirebaseAuth.getInstance()
         binding.emailLoginButton.setOnClickListener {
             signinEmail()
         }
         binding.emailSignupButton.setOnClickListener {
-            startActivity(Intent(this,SignupActivity::class.java))
+            startActivity(Intent(this,AgreeActivity::class.java))
         }
         binding.googleLoginButton.setOnClickListener {
             //첫번째 단계
@@ -81,6 +83,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signupEmail() {
+
+
+
+
+
+
+
+
+
         auth?.createUserWithEmailAndPassword(
             binding.emailEditText.text.toString(),
             binding.passwordEditText.text.toString()
@@ -100,6 +111,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signinEmail() {
+        if(   binding.emailEditText.text.toString().isNullOrEmpty()||
+            binding.passwordEditText.text.toString().isNullOrEmpty()
+        ) {
+            return
+        }
         auth?.signInWithEmailAndPassword(
             binding.emailEditText.text.toString(),
             binding.passwordEditText.text.toString()
@@ -126,4 +142,5 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+    fun onClick(view: android.view.View) {}
 }

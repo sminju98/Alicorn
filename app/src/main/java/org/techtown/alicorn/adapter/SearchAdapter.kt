@@ -18,6 +18,7 @@ import org.techtown.alicorn.databinding.ActivitySearchBinding
 import org.techtown.alicorn.databinding.ItemDoctorBinding
 import org.techtown.alicorn.firestore
 import org.techtown.alicorn.navigation.model.DoctorDTO
+import org.w3c.dom.DOMConfiguration
 
 class SearchAdapter(val onItemClicked: (DoctorDTO) -> Unit) :
     RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
@@ -41,6 +42,7 @@ class SearchAdapter(val onItemClicked: (DoctorDTO) -> Unit) :
                 DoctorDTOs.clear()
                 for (snapshot in value!!.documents) {
                     var item = snapshot.toObject(DoctorDTO::class.java)
+                    item?.id = snapshot.id
                     DoctorDTOs.add(item!!)
                 }
 
@@ -74,6 +76,9 @@ class SearchAdapter(val onItemClicked: (DoctorDTO) -> Unit) :
         Glide.with(viewHolder.context).load(DoctorDTOs!![position].profileImageUrl)
             .into(holder.binding.doctorImage)
 
+        holder.binding.root.setOnClickListener{
+            onItemClicked(DoctorDTOs[position])
+        }
     }
 
 }
