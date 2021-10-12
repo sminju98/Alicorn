@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         var gso= GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("593874221588-7mqldmalbs82t54kd1pdoaga6e7g4quv.apps.googleusercontent.com")
+        .requestIdToken("593874221588-2f6gfpkm43dshr4311b62l6jmtu373o4.apps.googleusercontent.com")
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this,gso)
