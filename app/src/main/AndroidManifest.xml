@@ -19,7 +19,6 @@
         <activity android:name=".AgreeActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".DoctorActivity" />
-        <activity android:name=".ReceiptActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".AddPhotoActivity" />
         <activity android:name=".MainActivity" />
