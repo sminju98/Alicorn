@@ -1,13 +1,12 @@
 package org.techtown.alicorn
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import org.techtown.alicorn.databinding.ActivityDoctorBinding
-import org.techtown.alicorn.databinding.ItemDoctorBinding
 import org.techtown.alicorn.navigation.model.DoctorDTO
 
 class DoctorActivity : AppCompatActivity() {
@@ -21,15 +20,14 @@ class DoctorActivity : AppCompatActivity() {
         binding = ActivityDoctorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Toast.makeText(this,doctorId,Toast.LENGTH_SHORT).show()
-
         db.collection("doctor").document(doctorId).get().addOnSuccessListener{
             doctor = it.toObject(DoctorDTO::class.java)
             setView()
         }
 
-        binding.backButton.setOnClickListener {
-            finish()
+
+        binding.receiptBtn.setOnClickListener {
+            startActivity(Intent(this,ReceiptActivity::class.java))
         }
     }
 
@@ -37,6 +35,7 @@ class DoctorActivity : AppCompatActivity() {
         binding.doctorNameTextView.text=doctor?.doctorName
         binding.clinicNameTextView.text=doctor?.clinicName
         binding.explainTitle.text=doctor?.info
+        binding.explainContent.text=doctor?.context
         Glide.with(this).load(doctor?.profileImageUrl).into(binding.doctorImage)
     }
 
