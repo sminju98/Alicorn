@@ -12,10 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Alicorn">
-        <activity
-            android:name=".ReservationActivity"
-            android:label="@string/title_activity_reservation"
-            android:theme="@style/Theme.Alicorn.NoActionBar"></activity>
         <activity android:name=".AgreeActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".DoctorActivity" />
