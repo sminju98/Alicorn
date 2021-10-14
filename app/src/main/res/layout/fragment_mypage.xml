@@ -11,7 +11,7 @@
         android:id="@+id/imageButton1"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:text="프로필"/>
+        android:text="프로필" />
 
     <Button
         android:id="@+id/imageButton2"
