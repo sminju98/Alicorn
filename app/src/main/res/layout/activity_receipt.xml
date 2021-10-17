@@ -207,58 +207,151 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginVertical="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginVertical="40dp"
             android:text="모든 약관에 모두 확인, 동의합니다"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
-        <CheckBox
-            android:id="@+id/checkBox1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="10dp"
-            android:text="[필수]서비스 이용약관 동의" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="10dp"
-            android:text="[필수]개인정보 처리방침 동의" />
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:text="[필수] 서비스 이용약관 동의"
+                android:textSize="12sp" />
 
-        <CheckBox
-            android:id="@+id/checkBox3"
-            android:layout_width="wrap_content"
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/arrow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="onClick"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="20dp"
-            android:text="[필수]개인민감(건강)정보 처리방침 동의" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:text="[필수] 개인정보 처리방침 동의"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/arrow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="onClick"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:text="[필수] 개인 민감 (건강)정보 처리방침 동의" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/arrow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="onClick"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:textSize="12sp"
+                android:text="[필수] 고유식별정보 수집동의 및 처리방침" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/arrow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="onClick"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+        </LinearLayout>
 
         <Button
             android:id="@+id/nextBtn"
             android:layout_width="342dp"
             android:layout_height="60dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginVertical="35dp"
             android:layout_marginStart="33dp"
-            android:layout_marginLeft="33dp"
             android:layout_marginBottom="89dp"
             android:background="#5ea7ff"
             android:text="진료하기"
+            android:backgroundTint="#aaaaaa"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:enabled="false"
             android:textSize="25sp"></Button>
     </LinearLayout>
 

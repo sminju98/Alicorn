@@ -35,6 +35,7 @@ class SignupActivity : AppCompatActivity() {
         }
     }
 
+
         fun signupEmail() {
             auth?.createUserWithEmailAndPassword(
                 binding.emailEditText.text.toString(),
@@ -44,6 +45,7 @@ class SignupActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         Toast.makeText(this, "회원가입에 성공하셨습니다.", Toast.LENGTH_LONG).show()
                         startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
                         //계정 생성
                     } else if (task.exception?.message.isNullOrEmpty()) {
                         //실패, 에러메세지

@@ -19,13 +19,14 @@ class AgreeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.backButton.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
 
 
 
         binding.emailSignupButton.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
+            finish()
         }
 
 

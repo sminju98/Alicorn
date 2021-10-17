@@ -23,11 +23,11 @@ class WebViewActivity : AppCompatActivity() {
     private fun setWebView() {
         val url = if (type == "AGREE") {
             when (number) {
-                1 -> "https://www.drugunicorn.com"
-                2 -> "https://www.drugunicorn.com"
-                3 -> "https://www.drugunicorn.com"
-                4 -> "https://www.drugunicorn.com"
-                5 -> "https://www.drugunicorn.com"
+                1 -> "https://www.drugunicorn.com/agree.html"
+                2 -> "https://www.drugunicorn.com/agree.html"
+                3 -> "https://www.drugunicorn.com/agree.html"
+                4 -> "https://www.drugunicorn.com/agree.html"
+                5 -> "https://www.drugunicorn.com/agree.html"
                 else -> "https://www.naver.com"
             }
         } else {

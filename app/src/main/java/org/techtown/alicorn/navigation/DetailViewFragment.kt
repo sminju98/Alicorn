@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.ktx.Firebase
 import org.techtown.alicorn.AddPhotoActivity
 import org.techtown.alicorn.databinding.FragmentDetailBinding
 import org.techtown.alicorn.databinding.ItemDetailBinding
@@ -20,6 +23,7 @@ import org.techtown.alicorn.navigation.model.ContentDTO
 
 class DetailViewFragment : Fragment(){
     var firestore : FirebaseFirestore? = null
+    val auth = Firebase.auth
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,7 +38,7 @@ class DetailViewFragment : Fragment(){
         }
 
         view.detailviewfragmentRecyclerview.adapter = DetailViewRecyclerViewAdapter()
-        view.detailviewfragmentRecyclerview.layoutManager = LinearLayoutManager(activity)
+        view.detailviewfragmentRecyclerview.layoutManager = GridLayoutManager(requireContext(),2)
         return view.root
 
 
@@ -46,7 +50,7 @@ class DetailViewFragment : Fragment(){
 
         init{
 
-            firestore?.collection("images")?.orderBy("timestamp")?.addSnapshotListener{ value: QuerySnapshot?, error: FirebaseFirestoreException? ->
+            firestore?.collection("images")?.whereEqualTo("uid", auth.uid)?.addSnapshotListener{ value: QuerySnapshot?, error: FirebaseFirestoreException? ->
                 contentDTOs.clear()
                 contentUidList.clear()
                 for(snapshot in value!!.documents){

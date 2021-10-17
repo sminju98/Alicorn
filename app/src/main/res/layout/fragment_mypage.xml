@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal"
+        android:textSize="15sp"
+        android:textColor="#222222"
+        android:layout_marginHorizontal="169dp"
+        android:layout_marginVertical="20dp"
+        android:lineSpacingExtra="7sp"
+        android:gravity="center_horizontal"
+        android:text="마이 페이지"/>
+
+
+
 
     <Button
-        android:id="@+id/imageButton1"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:text="프로필" />
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/colorWhite"
+        android:text="프로필 정보" />
 
-    <Button
-        android:id="@+id/imageButton2"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_toRightOf="@+id/imageButton1"
-        android:text="진료내역"/>
-
-    <Button
-        android:id="@+id/imageButton3"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/imageButton2"
-        android:text="카드등록"/>
 
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:backgroundTint="@color/colorWhite"
-        android:layout_below="@id/imageButton1"
         android:text="공지사항" />
 
     <Button
@@ -62,11 +62,11 @@
         android:text="약관 및 정책" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/logoutButton"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:backgroundTint="@color/colorWhite"
-        android:layout_below="@id/button4"
-        android:text="버전 정보" />
+        android:backgroundTint="@color/white"
+        android:text="로그아웃"/>
 
-</RelativeLayout>
+
+</LinearLayout>

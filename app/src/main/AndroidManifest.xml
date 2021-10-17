@@ -13,12 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alicorn">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".NoticeActivity"
             android:exported="true" />
         <activity
             android:name=".WebViewActivity"
             android:exported="true" />
         <activity android:name=".AgreeActivity" />
+        <activity android:name=".ReceiptActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".DoctorActivity" />
         <activity android:name=".SearchActivity" />

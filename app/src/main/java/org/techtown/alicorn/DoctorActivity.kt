@@ -9,7 +9,8 @@ import com.google.firebase.ktx.Firebase
 import org.techtown.alicorn.databinding.ActivityDoctorBinding
 import org.techtown.alicorn.navigation.model.DoctorDTO
 
-class DoctorActivity : AppCompatActivity() {
+class
+DoctorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDoctorBinding
     private val doctorId: String by lazy {intent.getStringExtra("DOCTOR_ID")?:"0"}
     private val db = Firebase.firestore

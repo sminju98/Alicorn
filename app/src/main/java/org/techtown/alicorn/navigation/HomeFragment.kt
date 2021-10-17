@@ -24,10 +24,6 @@ class HomeFragment : Fragment() {
             startActivity(Intent(getActivity(), SearchActivity::class.java))
         }
 
-        view.guideButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://drugunicorn.com"))
-            startActivity(intent)
-        }
 
         view.treatButton.setOnClickListener {
             startActivity(Intent(getActivity(), SearchActivity::class.java))

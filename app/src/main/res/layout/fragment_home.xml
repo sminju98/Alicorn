@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical">
+    !--Code for layer -->
 
+    <View
+        android:layout_width="411dp"
+        android:layout_height="395dp"
+        android:background="@drawable/ellipse_18"></View>
 
     <Button
         android:id="@+id/searchButton"
@@ -14,49 +19,29 @@
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_marginVertical="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginVertical="30dp"
         android:background="@drawable/search"
-        android:text="질병, 부위 등을 검색하세요"
+        android:text="알리콘에서 검색하세요!"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="24sp" />
-
-    <Button
-        android:id="@+id/guideButton"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_below="@id/searchButton"
-        android:layout_marginVertical="30dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="서비스 이용법"
-        android:textColor="@color/colorWhite"
-        android:textSize="34sp" />
 
 
     <Button
         android:id="@+id/treatButton"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_below="@id/guideButton"
-        android:layout_marginVertical="30dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/searchButton"
+        android:layout_marginHorizontal="35dp"
+        android:backgroundTint="#5ea7ff"
         android:text="진료 받기"
-        android:background="@color/colorPrimaryDark"
         android:textColor="@color/colorWhite"
-        android:textSize="34sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 
-    <Button
-        android:id="@+id/phrButton"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_below="@id/treatButton"
-        android:layout_marginVertical="30dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="의료기록 확인하기"
-        android:textColor="@color/colorWhite"
-        android:textSize="34sp" />
 
 </RelativeLayout>
 
