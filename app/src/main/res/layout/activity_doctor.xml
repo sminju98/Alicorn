@@ -32,7 +32,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif"
                 android:lineSpacingExtra="7sp"
-                android:text="의사 정"
+                android:text="의사 정보"
                 android:textColor="#222222"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -149,6 +149,17 @@
                 android:textSize="14sp"
                 android:textStyle="normal" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="7sp"
+                android:layout_marginVertical="15dp"
+                android:text="영업 시간"
+                android:textColor="#222222"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -172,7 +183,7 @@
                     android:textStyle="normal"
                     android:textSize="14sp"
                     android:textColor="#9b9b9b"
-                    android:text="화 10 : 00 ~ 20 : 00"/>
+                    android:text=" 10 : 00 ~ 20 : 00"/>
 
                 <TextView
                     android:layout_width="wrap_content"
