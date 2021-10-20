@@ -15,62 +15,56 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import org.techtown.alicorn.databinding.ActivityLoginBinding
+import org.techtown.alicorn.navigation.model.UserDTO
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
+    val db = Firebase.firestore
     var auth: FirebaseAuth? = null
-    var googleSignInClient : GoogleSignInClient?= null
+    var googleSignInClient: GoogleSignInClient? = null
     var GOOGLE_LOGIN_CODE = 9001
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         auth = FirebaseAuth.getInstance()
         binding.emailLoginButton.setOnClickListener {
             signinEmail()
         }
         binding.emailSignupButton.setOnClickListener {
-            startActivity(Intent(this,AgreeActivity::class.java))
+            startActivity(Intent(this, AgreeActivity::class.java))
         }
         binding.googleLoginButton.setOnClickListener {
             //첫번째 단계
             googleLogin()
         }
 
-        var gso= GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-        .requestIdToken("593874221588-7mqldmalbs82t54kd1pdoaga6e7g4quv.apps.googleusercontent.com")
+        var gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken("593874221588-7mqldmalbs82t54kd1pdoaga6e7g4quv.apps.googleusercontent.com")
             .requestEmail()
             .build()
-        googleSignInClient = GoogleSignIn.getClient(this,gso)
-
-
-    }
-
-
-    public override fun onResume() {
-        super.onResume()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth?.currentUser
-        if(currentUser != null){
-            moveMainpage(currentUser)
-        }
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
     }
 
     fun googleLogin() {
         var signInIntent = googleSignInClient?.signInIntent
         startActivityForResult(signInIntent, GOOGLE_LOGIN_CODE)
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == GOOGLE_LOGIN_CODE) {
+        if (requestCode == GOOGLE_LOGIN_CODE) {
             var result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
             if (result != null) {
-                if(result.isSuccess){
+                if (result.isSuccess) {
                     var account = result.signInAccount
                     //두번째 단계
                     firebaseAuthWithGoogle(account)
@@ -78,8 +72,36 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-    fun firebaseAuthWithGoogle(account : GoogleSignInAccount?){
-        var credential = GoogleAuthProvider.getCredential(account?.idToken,null)
+
+    public override fun onResume() {
+        super.onResume()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth?.currentUser
+        if (currentUser != null) {
+            db.collection("users").document(currentUser.uid).get().addOnSuccessListener {
+                val userData = it.toObject<UserDTO>()
+                val provider = try {
+                    currentUser.providerData[1].providerId
+                } catch (e: Exception) {
+                    currentUser.providerData[0].providerId
+                }
+
+                Log.e(provider, userData?.activation.toString())
+                if (provider == "password") {
+                    if (userData?.activation == true) {
+                        moveMainpage(currentUser)
+                    } else {
+
+                    }
+                } else {
+                    moveMainpage(currentUser)
+                }
+            }
+        }
+    }
+
+    fun firebaseAuthWithGoogle(account: GoogleSignInAccount?) {
+        var credential = GoogleAuthProvider.getCredential(account?.idToken, null)
         auth?.signInWithCredential(credential)
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -88,7 +110,7 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     //로그인 실패, 에러메세지
                     Toast.makeText(this, "로그인 실패", Toast.LENGTH_LONG).show()
-                           }
+                }
             }
     }
 
@@ -114,7 +136,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signinEmail() {
-        if(   binding.emailEditText.text.toString().isNullOrEmpty()||
+        if (binding.emailEditText.text.toString().isNullOrEmpty() ||
             binding.passwordEditText.text.toString().isNullOrEmpty()
         ) {
             return
@@ -137,12 +159,9 @@ class LoginActivity : AppCompatActivity() {
 
     fun moveMainpage(user: FirebaseUser?) {
         if (user != null) {
-            startActivity(Intent(this,MainActivity::class.java))
-
-
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
-
-
     }
 
     fun onClick(view: android.view.View) {}
