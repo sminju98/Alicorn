@@ -1,10 +1,12 @@
-<!-- Code for drawable -->
-<shape
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">  <size android:width="5dp" android:height="10dp"/>
+    <corners android:bottomLeftRadius="70dp" android:bottomRightRadius="70dp" />
+
+
     <gradient
         android:type="linear"
-        android:startColor="#5ea7ff"
+        android:startColor="@color/skyBlue"
         android:endColor="#00c4c4c4"
         android:angle="270" />
+
 </shape>

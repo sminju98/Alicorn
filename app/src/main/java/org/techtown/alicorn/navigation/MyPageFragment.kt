@@ -10,12 +10,13 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import org.techtown.alicorn.LoginActivity
 import org.techtown.alicorn.ProfileActivity
-import org.techtown.alicorn.R
+import org.techtown.alicorn.WebViewActivity
 import org.techtown.alicorn.databinding.FragmentMypageBinding
 
-class MyPageFragment : Fragment(),View.OnClickListener {
-private lateinit var binding: FragmentMypageBinding
-private val auth = Firebase.auth
+class MyPageFragment : Fragment(), View.OnClickListener {
+    private lateinit var binding: FragmentMypageBinding
+    private val auth = Firebase.auth
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,22 +29,42 @@ private val auth = Firebase.auth
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.button.setOnClickListener(this)
+        binding.profileBtn.setOnClickListener(this)
         binding.logoutButton.setOnClickListener(this)
-        }
+    }
 
-    override fun onClick(v: View?) {
-        when(v){
-            binding.button -> {
-                startActivity(Intent(requireContext(),ProfileActivity::class.java))
+    override fun onClick(v: android.view.View) {
+        when (v) {
+            binding.profileBtn -> {
+                startActivity(Intent(requireContext(), ProfileActivity::class.java))
 
             }
+            binding.treatRecordBtn -> {
+                val intent = Intent(context, WebViewActivity::class.java)
+                intent.putExtra("TYPE", "AGREE")
+                intent.putExtra("NUMBER", 1)
+                startActivity(intent)
+            }
+            binding.noticeBtn -> {
+                val intent = Intent(context, WebViewActivity::class.java)
+                intent.putExtra("TYPE", "AGREE")
+                intent.putExtra("NUMBER", 2)
+                startActivity(intent)
+            }
+
+            binding.agreeBtn -> {
+                val intent = Intent(context, WebViewActivity::class.java)
+                intent.putExtra("TYPE", "AGREE")
+                intent.putExtra("NUMBER", 3)
+                startActivity(intent)
+            }
+
             binding.logoutButton -> {
                 auth.signOut()
-                startActivity(Intent(requireContext(),LoginActivity::class.java))
+                startActivity(Intent(requireContext(), LoginActivity::class.java))
                 activity?.finish()
 
             }
+        }
     }
-  }
 }

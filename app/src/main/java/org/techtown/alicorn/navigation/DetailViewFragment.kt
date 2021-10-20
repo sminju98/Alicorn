@@ -33,7 +33,7 @@ class DetailViewFragment : Fragment(){
         firestore = FirebaseFirestore.getInstance()
         //val currentUid =FirebaseAuth.getInstance().currentUser.uid
 
-        view.button.setOnClickListener {
+        view.photoBtn.setOnClickListener {
             startActivity(Intent(getActivity(), AddPhotoActivity::class.java))
         }
 
@@ -75,9 +75,6 @@ class DetailViewFragment : Fragment(){
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             var viewholder = (holder as CustomViewHolder).itemView
-            //UserId
-
-            holder.binding.detailviewitemProfileTextview.text = contentDTOs!![position].userId
 
             //Image
             Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl).into(holder.binding.detailviewitemImageviewContent)
