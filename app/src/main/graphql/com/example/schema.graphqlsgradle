@@ -1,0 +1,434 @@
+"""
+일반 응답 인터페이스
+"""
+interface IFBaseResponse {
+  """
+  응답 상태
+  """
+  ok: Boolean!
+  """
+  에러 내용
+  """
+  error: String
+}
+
+"""
+일반 응답
+"""
+type BaseResponse implements IFBaseResponse {
+  """
+  응답 상태
+  """
+  ok: Boolean!
+  """
+  에러 내용
+  """
+  error: String
+}
+
+"""
+성별
+"""
+enum Sex {
+  """
+  남자
+  """
+  MALE
+  """
+  여자
+  """
+  FEMALE
+}
+
+"""
+의사 데이터 모델
+"""
+type Doctor {
+  """
+  ID
+  """
+  id: Int!
+  """
+  이메일
+  """
+  email: String!
+  """
+  이름
+  """
+  name: String!
+  """
+  주전공
+  """
+  major: String!
+  """
+  병원명
+  """
+  hospitalName: String!
+  """
+  병원 소개
+  """
+  hospitalProfile: String!
+  """
+  개업 시간
+  """
+  time: [String]
+  """
+  경력
+  """
+  careers: [String]
+  """
+  태그 e.g.) 진료 항목
+  """
+  tags: [String]
+  """
+  의사 프로필 사진
+  """
+  profileImage: String!
+  """
+  병원 배경 사진
+  """
+  hospitalImage: String!
+  """
+  병원 로고 사진
+  """
+  hospitalLogo: String!
+  """
+  생성 일자
+  """
+  createdAt: String!
+  """
+  수정 일자
+  """
+  updatedAt: String!
+}
+
+"""
+진료 데이터 모델
+"""
+type Treat {
+  """
+  ID
+  """
+  id: Int!
+  """
+  진료 신청 환자
+  """
+  applicant: User
+  """
+  진료 신청 환자 ID
+  """
+  applicantId: Int!
+  """
+  진료 배정 의사
+  """
+  doctor: Doctor
+  """
+  진료 배정 의사 ID
+  """
+  doctorId: Int!
+  """
+  증상
+  """
+  symptoms: [String]
+  """
+  요청사항
+  """
+  requests: String!
+  """
+  생성 일자
+  """
+  createdAt: String!
+  """
+  수정 일자
+  """
+  updatedAt: String!
+}
+
+"""
+환자 데이터 모델
+"""
+type User {
+  """
+  ID
+  """
+  id: Int!
+  """
+  이메일
+  """
+  email: String!
+  """
+  비밀번호
+  """
+  password: String!
+  """
+  프로필
+  """
+  profile: UserProfile
+  """
+  프로필 ID
+  """
+  profileId: Int
+  """
+  생성 일자
+  """
+  createdAt: String!
+  """
+  수정 일자
+  """
+  updatedAt: String!
+}
+
+"""
+환자 프로필 데이터 모델
+"""
+type UserProfile {
+  id: Int!
+  """
+  환자 ID
+  """
+  userId: Int!
+  """
+  이름
+  """
+  name: String!
+  """
+  성별
+  """
+  sex: Sex!
+  """
+  주민등록번호
+  """
+  residentNumber: String!
+  """
+  핸드폰 번호
+  """
+  phoneNumber: String
+  """
+  카카오톡 ID
+  """
+  kakaoId: String
+  """
+  기저질환
+  """
+  underlyingDiseases: [String]
+  """
+  생성 일자
+  """
+  createdAt: String!
+  """
+  수정 일자
+  """
+  updatedAt: String!
+}
+
+"""
+인증 코드 데이터 모델
+"""
+type Verification {
+  """
+  ID
+  """
+  id: Int!
+  """
+  이메일
+  """
+  email: String!
+  """
+  코드
+  """
+  code: String!
+  """
+  생성 일자
+  """
+  createdAt: String!
+  """
+  수정 일자
+  """
+  updatedAt: String!
+}
+
+"""
+파일
+"""
+scalar Upload
+
+"""
+이미지 업로드 응답
+"""
+type UploadImageResponse implements IFBaseResponse {
+  """
+  응답 상태
+  """
+  ok: Boolean!
+  """
+  에러 내용
+  """
+  error: String
+  """
+  업로드 이미지 URL
+  """
+  url: String
+}
+
+"""
+뮤테이션
+"""
+type Mutation {
+  """
+  이미지 업로드
+  """
+  uploadImage("""이미지 파일""" image: Upload!): UploadImageResponse!
+  """
+  의사 계정 생성
+  """
+  createDoctor("""이메일""" email: String!, """비밀번호""" password: String!, """이름""" name: String!, """주전공""" major: String!, """병원명""" hospitalName: String!, """병원 소개""" hospitalProfile: String!, """개업 시간""" time: [String], """경력""" careers: [String], """태그 e.g.) 진료 항목""" tags: [String], """의사 프로필 사진""" profileImage: String!, """병원 배경 사진""" hospitalImage: String!, """병원 로고 사진""" hospitalLogo: String!): BaseResponse!
+  """
+  의사 로그인
+  """
+  loginDoctor("""이메일""" email: String!, """비밀번호""" password: String!): LoginDoctorResponse!
+  """
+  진료 결제 금액 결정
+  """
+  makeTreatAmount("""진료 ID""" treatId: Int!, """진료 결제 금액""" amount: Int!): BaseResponse!
+  """
+  진료 결과 작성
+  """
+  makeTreatResult("""진료 ID""" treatId: Int!, """진료 결과""" result: String!): BaseResponse!
+  """
+  진료 결제
+  """
+  payTreat("""진료 ID""" treatId: Int!): BaseResponse!
+  """
+  진료 신청
+  """
+  requestTreat("""진료 배정 의사 ID""" doctorId: Int!, """증상""" symptoms: [String], """요청사항""" requests: String!): BaseResponse!
+  """
+  환자 계정 생성
+  """
+  createUser("""이메일""" email: String!, """비밀번호""" password: String!): BaseResponse!
+  """
+  환자 프로필 생성
+  """
+  createUserProfile("""이름""" name: String!, """성별""" sex: Sex!, """주민등록번호""" residentNumber: String!, """핸드폰 번호""" phoneNumber: String, """카카오톡 ID""" kakaoId: String, """기저질환""" underlyingDiseases: [String]): BaseResponse!
+  """
+  환자 로그인
+  """
+  login("""이메일""" email: String!, """비밀번호""" password: String!): LoginResponse!
+  """
+  인증 코드 생성
+  """
+  sendVerification("""인증 필요 이메일""" email: String!): BaseResponse!
+}
+
+"""
+의사 조회 응답
+"""
+type GetDoctorResponse implements IFBaseResponse {
+  """
+  응답 상태
+  """
+  ok: Boolean!
+  """
+  에러 내용
+  """
+  error: String
+  """
+  의사
+  """
+  doctor: Doctor
+}
+
+"""
+쿼리
+"""
+type Query {
+  """
+  의사 조회
+  """
+  getDoctor("""이메일""" email: String!): GetDoctorResponse!
+  """
+  의사 목록 불러오기
+  """
+  getDoctors: GetDoctorsResponse!
+  """
+  환자 조회
+  """
+  getUser("""이메일""" email: String!): GetUserResponse!
+}
+
+"""
+의사 목록 조회 응답
+"""
+type GetDoctorsResponse implements IFBaseResponse {
+  """
+  응답 상태
+  """
+  ok: Boolean!
+  """
+  에러 내용
+  """
+  error: String
+  """
+  의사 목록
+  """
+  doctors: [Doctor]
+}
+
+"""
+의사 로그인 응답
+"""
+type LoginDoctorResponse implements IFBaseResponse {
+  """
+  응답 상태
+  """
+  ok: Boolean!
+  """
+  에러 내용
+  """
+  error: String
+  """
+  JWT 토큰
+  """
+  token: String
+}
+
+"""
+환자 조회 응답
+"""
+type GetUserResponse implements IFBaseResponse {
+  """
+  응답 상태
+  """
+  ok: Boolean!
+  """
+  에러 내용
+  """
+  error: String
+  """
+  환자
+  """
+  user: User
+}
+
+"""
+환자 로그인 응답
+"""
+type LoginResponse implements IFBaseResponse {
+  """
+  응답 상태
+  """
+  ok: Boolean!
+  """
+  에러 내용
+  """
+  error: String
+  """
+  JWT 토큰
+  """
+  token: String
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
