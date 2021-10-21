@@ -115,6 +115,22 @@ class ReceiptActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
+            binding.nextBtn->{
+                val apolloClient = ApolloClient.builder()
+                    .serverUrl("https://rickandmortyapi.com/graphql/")
+                    .build()
+
+                apolloClient.query(ResultQuery())
+                    .enqueue(object : ApolloCall.Callback<ResultQuery.Data>() {
+                        override fun onResponse(response: Response<ResultQuery.Data>) {
+                            ...
+                        }
+
+                        override fun onFailure(e: ApolloException) {
+                            ...
+                        }
+                    })
+            }
         }
     }
 

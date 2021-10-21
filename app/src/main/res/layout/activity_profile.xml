@@ -12,15 +12,14 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="44dp">
-
         <ImageView
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
             android:layout_gravity="center_vertical"
-            android:layout_margin="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_baseline_arrow_back_ios_24">
+            android:layout_margin="8dp">
 
         </ImageView>
 
@@ -52,14 +51,14 @@
                 app:cardCornerRadius="20dp"
                 android:layout_margin="16dp">
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <ImageView
                     android:id="@+id/profileImage"
-                    android:layout_width="61dp"
+                    android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="24dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/doctor"/>
+                    android:src="@drawable/doctor"></ImageView>
 
                 <ImageView
                     android:layout_width="22dp"
