@@ -347,11 +347,12 @@
             android:layout_marginStart="33dp"
             android:layout_marginBottom="89dp"
             android:background="#5ea7ff"
-            android:text="진료하기"
+            android:text="진료받기"
             android:backgroundTint="#aaaaaa"
             android:textColor="#ffffff"
             android:textStyle="bold"
             android:enabled="false"
+            android:onClick="onClick"
             android:textSize="25sp"></Button>
     </LinearLayout>
 
