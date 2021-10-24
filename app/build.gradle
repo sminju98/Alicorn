@@ -2,8 +2,6 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'com.google.gms.google-services'
-    id("com.apollographql.apollo").version("2.5.9")
-
 }
 
 android {
@@ -40,8 +38,6 @@ android {
     dataBinding {
         enabled = true
     }
-    apollo {   generateKotlinModels.set(true)
-    }
 }
 
 dependencies {
@@ -67,11 +63,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'jp.wasabeef:glide-transformations:4.3.0'//gradle에 추가
     implementation 'de.hdodenhof:circleimageview:3.0.0'
-
-    implementation("com.apollographql.apollo:apollo-runtime:x.y.z")
-    // Coroutines extensions for easier asynchronicity handling
-    implementation("com.apollographql.apollo:apollo-coroutines-support:x.y.z")
-
 
     // If you want to use the GPU Filters
     implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'

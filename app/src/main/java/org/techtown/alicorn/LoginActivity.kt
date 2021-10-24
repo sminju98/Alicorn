@@ -1,24 +1,21 @@
 package org.techtown.alicorn
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.messaging.FirebaseMessaging
 import org.techtown.alicorn.databinding.ActivityLoginBinding
 import org.techtown.alicorn.navigation.model.UserDTO
 
@@ -54,6 +51,37 @@ class LoginActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
     }
 
+
+    public override fun onResume() {
+        super.onResume()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth?.currentUser
+        if (currentUser != null) {
+            db.collection("users").document(currentUser.uid).get().addOnSuccessListener {
+                val userData = it.toObject<UserDTO>()
+                val provider = try {
+                    currentUser.providerData[1].providerId
+                } catch (e: Exception) {
+                    currentUser.providerData[0].providerId
+                }
+                Log.e("${currentUser.uid}", userData?.activation.toString())
+
+                if (provider == "password") {
+                    if (userData?.activation == true) {
+                        moveMainpage(currentUser)
+                    } else { Toast.makeText(this, "회원가입을 위해 이메일 인증을 부탁드립니다.", Toast.LENGTH_LONG).show()
+
+                    }
+                } else {
+                    moveMainpage(currentUser)
+                }
+                //db.collection("users").document(currentUser.uid).update()
+                //  moveMainpage(currentUser)
+                //Log.e(auth?.currentUser?.providerId, current)
+            }
+        }
+    }
+
     fun googleLogin() {
         var signInIntent = googleSignInClient?.signInIntent
         startActivityForResult(signInIntent, GOOGLE_LOGIN_CODE)
@@ -68,33 +96,6 @@ class LoginActivity : AppCompatActivity() {
                     var account = result.signInAccount
                     //두번째 단계
                     firebaseAuthWithGoogle(account)
-                }
-            }
-        }
-    }
-
-    public override fun onResume() {
-        super.onResume()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth?.currentUser
-        if (currentUser != null) {
-            db.collection("users").document(currentUser.uid).get().addOnSuccessListener {
-                val userData = it.toObject<UserDTO>()
-                val provider = try {
-                    currentUser.providerData[1].providerId
-                } catch (e: Exception) {
-                    currentUser.providerData[0].providerId
-                }
-
-                Log.e(provider, userData?.activation.toString())
-                if (provider == "password") {
-                    if (userData?.activation == true) {
-                        moveMainpage(currentUser)
-                    } else {
-
-                    }
-                } else {
-                    moveMainpage(currentUser)
                 }
             }
         }
@@ -115,8 +116,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signupEmail() {
-
-
         auth?.createUserWithEmailAndPassword(
             binding.emailEditText.text.toString(),
             binding.passwordEditText.text.toString()
