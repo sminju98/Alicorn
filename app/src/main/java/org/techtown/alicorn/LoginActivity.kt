@@ -59,26 +59,28 @@ class LoginActivity : AppCompatActivity() {
         if (currentUser != null) {
             db.collection("users").document(currentUser.uid).get().addOnSuccessListener {
                 val userData = it.toObject<UserDTO>()
-                val provider = try {
-                    currentUser.providerData[1].providerId
-                } catch (e: Exception) {
-                    currentUser.providerData[0].providerId
-                }
-                Log.e("${currentUser.uid}", userData?.activation.toString())
-
-                if (provider == "password") {
-                    if (userData?.activation == true) {
-                        moveMainpage(currentUser)
-                    } else { Toast.makeText(this, "회원가입을 위해 이메일 인증을 부탁드립니다.", Toast.LENGTH_LONG).show()
-
+                   val provider = try {
+                        currentUser.providerData[1].providerId
+                    } catch (e: Exception) {
+                        currentUser.providerData[0].providerId
                     }
-                } else {
-                    moveMainpage(currentUser)
+                    Log.e("${currentUser.uid}", userData?.activation.toString())
+
+                    if (provider == "password") {
+                        if (userData?.activation == true) {
+                            moveMainpage(currentUser)
+                        } else { Toast.makeText(this, "회원가입을 위해 이메일 인증을 부탁드립니다.", Toast.LENGTH_LONG).show()
+
+                        }
+                    } else {
+                        Toast.makeText(this, "회원가입을 위해 이메일 인증을 부탁드립니다.", Toast.LENGTH_LONG).show()
+
+                        //  moveMainpage(currentUser)
+                    }
+                    //db.collection("users").document(currentUser.uid).update()
+                    //  moveMainpage(currentUser)
+                    //Log.e(auth?.currentUser?.providerId, current)
                 }
-                //db.collection("users").document(currentUser.uid).update()
-                //  moveMainpage(currentUser)
-                //Log.e(auth?.currentUser?.providerId, current)
-            }
         }
     }
 

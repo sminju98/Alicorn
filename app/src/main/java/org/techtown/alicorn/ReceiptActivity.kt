@@ -118,15 +118,9 @@ class ReceiptActivity : AppCompatActivity() {
             }
 
             binding.nextBtn -> {
-                val email = Intent(Intent.ACTION_SEND)
-                email.type = "plain/Text"
-                email.putExtra(Intent.EXTRA_EMAIL, "sminju98@gmail.com")
-                email.putExtra(Intent.EXTRA_SUBJECT, "진료신청")
 
-                
-                email.putExtra(Intent.EXTRA_TEXT, "진료신청합니다")
-                email.setType("message/rfc822");
-                startActivity(email);
+
+
             }
         }
     }
