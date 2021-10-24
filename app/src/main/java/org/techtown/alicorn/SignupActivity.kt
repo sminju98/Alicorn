@@ -23,11 +23,11 @@ import org.techtown.alicorn.navigation.model.UserDTO
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
+
     var auth: FirebaseAuth? = null
     val db = Firebase.firestore
 
-
-    var googleSignInClient : GoogleSignInClient?= null
+    var googleSignInClient: GoogleSignInClient? = null
     var GOOGLE_LOGIN_CODE = 9001
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,39 +44,43 @@ class SignupActivity : AppCompatActivity() {
     }
 
 
-        fun signupEmail() {
-            auth?.createUserWithEmailAndPassword(
-                binding.emailEditText.text.toString(),
-                binding.passwordEditText.text.toString()
-            )
-                ?.addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "회원가입에 성공하셨습니다.", Toast.LENGTH_LONG).show()
-                        updateUserdata()
-                        //계정 생성
-                    } else if (task.exception?.message.isNullOrEmpty()) {
-                        //실패, 에러메세지
+    fun signupEmail() {
+        auth?.createUserWithEmailAndPassword(
+            binding.emailEditText.text.toString(),
+            binding.passwordEditText.text.toString()
+        )
+            ?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "회원가입에 성공하셨습니다.", Toast.LENGTH_LONG).show()
+                    updateUserData()
+                    //계정 생성
+                } else if (task.exception?.message.isNullOrEmpty()) {
+                    //실패, 에러메세지
 
-                        Toast.makeText(this, "회원가입 실패.", Toast.LENGTH_LONG).show()
-                    }
+                    Toast.makeText(this, "회원가입 실패.", Toast.LENGTH_LONG).show()
                 }
-        }
+            }
+    }
 
-    private fun updateUserdata() {
-        val user = UserDTO().apply{
+    private fun updateUserData() {
+        val user = UserDTO().apply {
             uid = auth?.uid
             email = auth?.currentUser?.email
             activation = false
         }
-        auth?.uid?.let { db.collection("users").document(it).set(user).addOnSuccessListener {
-            sendVerificationEmail()
-        }}
+
+        auth?.uid?.let {
+            db.collection("users").document(it).set(user).addOnSuccessListener {
+                sendVerificationEmail()
+            }
+        }
     }
 
     private fun sendVerificationEmail() {
         val user = auth?.currentUser!!
 
         val url = "https://us-central1-alicorn-ff5a3.cloudfunctions.net/activateUser?uid=" + user.uid
+        Log.e("url", url)
         val actionCodeSettings = ActionCodeSettings.newBuilder()
             .setUrl(url)
             .build()
@@ -85,11 +89,9 @@ class SignupActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     finish()
-                }
-                else{
-                    Log.e("failed",task.exception?.message.toString())
+                } else {
+                    Log.e("fail", task.exception?.message.toString())
                 }
             }
-
     }
 }

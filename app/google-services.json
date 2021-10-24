@@ -15,19 +15,19 @@
       },
       "oauth_client": [
         {
+          "client_id": "593874221588-ahdvptkfu95ghvvslnlot59h6si33d1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.techtown.alicorn",
+            "certificate_hash": "b6b4d594de70099d1456fd6f57e246555b1372fe"
+          }
+        },
+        {
           "client_id": "593874221588-akvs0191a8rt2h6rko7fhqfnvekbdta5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "org.techtown.alicorn",
             "certificate_hash": "328d8e6e4a21d54323b3aa16ef367e6ab95fa36e"
-          }
-        },
-        {
-          "client_id": "593874221588-nmia0m0bm860b3tmu8ncom9bhp4qmngm.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "org.techtown.alicorn",
-            "certificate_hash": "b6b4d594de70099d1456fd6f57e246555b1372fe"
           }
         },
         {
