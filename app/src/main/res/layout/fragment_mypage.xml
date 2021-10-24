@@ -5,19 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:orientation="vertical">
-
 
 
         <!-- profile card start-->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            app:cardCornerRadius="20dp"
-            android:layout_margin="16dp">
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="20dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profileImage"
@@ -33,101 +35,212 @@
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_gravity="center_vertical"
-                android:orientation="vertical"
-                android:layout_marginStart="104dp">
+                android:layout_marginStart="104dp"
+                android:orientation="vertical">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
-                    android:textStyle="normal"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
                     android:lineSpacingExtra="8sp"
-                    android:text="송민주"/>
+                    android:text="송민주"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
 
                 <TextView
                     android:id="@+id/agesex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
-                    android:textStyle="normal"
-                    android:textSize="14sp"
-                    android:textColor="#a4a4b2"
                     android:lineSpacingExtra="6sp"
-                    android:text="만 22세 여성"/>
+                    android:text="만 22세 여성"
+                    android:textColor="#a4a4b2"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
 
                 <TextView
                     android:id="@+id/medicalText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
-                    android:textStyle="normal"
-                    android:textSize="11sp"
-                    android:textColor="#a4a4b2"
                     android:lineSpacingExtra="0.5sp"
-                    android:text="신장 172 cm / 60kg  기저 질환 : 알레르기성 비염"/>
-
-
+                    android:text="신장 172 cm / 60kg  기저 질환 : 알레르기성 비염"
+                    android:textColor="#a4a4b2"
+                    android:textSize="11sp"
+                    android:textStyle="normal" />
 
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
 
-
-
-
-
-
-
         <!-- profile card end-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:textColor="#222222"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:text="프로필 정보" />
 
 
-    <Button
-        android:id="@+id/profileBtn"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/colorWhite"
-        android:text="프로필 정보" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#9b9b9b"
+                android:textSize="11sp"
+                android:textStyle="normal"
+                android:text="기본 정보, 개인건강기록 " />
 
-    <Button
-        android:id="@+id/noticeBtn"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/colorWhite"
-        android:text="공지사항" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
-    <Button
-        android:id="@+id/treatRecordBtn"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/colorWhite"
-        android:text="이벤트" />
+            <ImageView
+                android:id="@+id/profileBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="onClick"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/colorWhite"
-        android:text="환경 설정" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:textColor="#222222"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:text="공지사항" />
 
-    <Button
-        android:id="@+id/agreeBtn"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/colorWhite"
-        android:layout_below="@id/button3"
-        android:text="약관 및 정책" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/white"
-        android:text="로그아웃"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#9b9b9b"
+                android:textSize="11sp"
+                android:textStyle="normal"
+                android:text="서류 발급 ( 진단서, 세부내역서 등 ) 안내 " />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/noticeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="onClick"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content"
+            android:textColor="#222222"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:text="진료내역" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#9b9b9b"
+                android:textSize="11sp"
+                android:textStyle="normal"
+                android:text="과거 진료내역 등" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/treatRecordBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="onClick"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#222222"
+            android:layout_marginTop="25dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:text="약관 및 정책" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#9b9b9b"
+                android:textSize="11sp"
+                android:textStyle="normal"
+                android:text="서비스 이용약관" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/agreeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="onClick"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="35dp"
+            android:backgroundTint="#5ea7ff"
+            android:text="로그아웃"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </ScrollView>

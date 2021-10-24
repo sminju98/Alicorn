@@ -73,7 +73,6 @@ class LoginActivity : AppCompatActivity() {
 
                         }
                     } else {
-                        Toast.makeText(this, "회원가입을 위해 이메일 인증을 부탁드립니다.", Toast.LENGTH_LONG).show()
 
                         //  moveMainpage(currentUser)
                     }

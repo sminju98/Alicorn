@@ -34,7 +34,8 @@ class DetailViewFragment : Fragment(){
         //val currentUid =FirebaseAuth.getInstance().currentUser.uid
 
         view.photoBtn.setOnClickListener {
-            startActivity(Intent(getActivity(), AddPhotoActivity::class.java))
+            startActivity(Intent(getActivity(),
+                AddPhotoActivity::class.java))
         }
 
         view.detailviewfragmentRecyclerview.adapter = DetailViewRecyclerViewAdapter()
