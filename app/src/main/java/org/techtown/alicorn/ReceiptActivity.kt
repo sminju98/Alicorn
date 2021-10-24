@@ -1,17 +1,26 @@
 package org.techtown.alicorn
 
+import android.Manifest
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import org.techtown.alicorn.databinding.ActivityReceiptBinding
-import android.R
+import android.net.Uri
+import android.telephony.SmsManager
 import android.view.View
+import com.bumptech.glide.Glide
+
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.normal.TedPermission
+import gun0912.tedimagepicker.builder.TedImagePicker
 
 
 class ReceiptActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReceiptBinding
+    private val phoneNumber: String by lazy { intent.getStringExtra(PHONE_NUMBER)?:"" }
+    private val photoList: ArrayList<Uri> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +32,22 @@ class ReceiptActivity : AppCompatActivity() {
         setCheckboxListener()
     }
 
+    var permissionlistener: PermissionListener = object : PermissionListener {
+        override fun onPermissionGranted() {
+            val sms: SmsManager = SmsManager.getDefault()
+            sms.sendTextMessage(
+                phoneNumber,
+                null,
+                binding.editContextText.text.toString(),
+                null,
+                null
+            )
+            //Toast.makeText(this@MainActivity, "Permission Granted", Toast.LENGTH_SHORT).show()
+        }
+
+        override fun onPermissionDenied(deniedPermissions: List<String>) {
+        }
+    }
 
     private fun setCheckboxListener() {
         binding.checkBox.setOnClickListener {
@@ -91,6 +116,51 @@ class ReceiptActivity : AppCompatActivity() {
     fun onClick(view: View) {
         when (view) {
 
+            binding.addPhotoCV -> {
+
+                TedImagePicker.with(this)
+                    .max(3 - photoList.size,"최대 이미지 개수는 3장 입니다.")
+                    .startMultiImage { uriList ->
+                        photoList.addAll(uriList)
+                        showMultiImage(photoList)
+                    }
+
+
+            }
+
+
+            binding.photo1RemoveIV -> {
+
+
+            }
+
+
+            binding.photo2RemoveIV -> {
+
+
+            }
+
+
+            binding.photo3RemoveIV -> {
+
+
+            }
+
+
+            binding.photo1CV -> {
+
+
+            }
+
+            binding.photo2CV -> {
+
+
+            }
+
+            binding.photo3CV -> {
+
+
+            }
             binding.arrow1 -> {
                 val intent = Intent(this, WebViewActivity::class.java)
                 intent.putExtra("TYPE", "AGREE")
@@ -119,10 +189,46 @@ class ReceiptActivity : AppCompatActivity() {
 
             binding.nextBtn -> {
 
-
+                TedPermission.create()
+                    .setPermissionListener(permissionlistener)
+                    .setDeniedMessage("권한 설정에 동의하지 않으시면 예약 문자를 보내실 수 없습니다.")
+                    .setPermissions(Manifest.permission.SEND_SMS)
+                    .check();
 
             }
         }
     }
 
+    private fun showMultiImage(photoList: ArrayList<Uri>) {
+
+        if(photoList?.get(0)!=null){
+            Glide.with(this).load(photoList[0]).into(binding.photo1CV)
+            binding.photo1CV.visibility=View.VISIBLE
+        }
+        else{
+            binding.photo1CV.visibility=View.GONE
+        }
+        if(photoList?.get(1)!=null){
+            Glide.with(this).load(photoList[1]).into(binding.photo2CV)
+            binding.photo2CV.visibility=View.VISIBLE
+        }
+        else{
+            binding.photo2CV.visibility=View.GONE
+        }
+
+
+
+        if(photoList?.get(2)!=null){
+            Glide.with(this).load(photoList[2]).into(binding.photo3CV)
+            binding.photo3CV.visibility=View.VISIBLE
+        }
+        else{
+            binding.photo3CV.visibility=View.GONE
+        }
+    }
+
+    companion object {
+
+        const val PHONE_NUMBER = "PHONE_NUMBER"
+    }
 }

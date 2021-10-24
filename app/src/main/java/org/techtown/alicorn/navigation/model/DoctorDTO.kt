@@ -16,5 +16,6 @@ data class DoctorDTO(
     var clinicName : String?= null,
     var profileImageUrl : String?= null,
     var info : String?= null,
-    var context : String?=null
+    var context : String?=null,
+    var phoneNumber : String ?= null
 )

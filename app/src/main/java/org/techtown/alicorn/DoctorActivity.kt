@@ -28,7 +28,10 @@ DoctorActivity : AppCompatActivity() {
 
 
         binding.receiptBtn.setOnClickListener {
-            startActivity(Intent(this,ReceiptActivity::class.java))
+            val intent = Intent(this,ReceiptActivity::class.java)
+            intent.putExtra(ReceiptActivity.PHONE_NUMBER,doctor?.phoneNumber)
+
+            startActivity(intent)
         }
     }
 
