@@ -10,6 +10,7 @@ import org.techtown.alicorn.databinding.ActivityReceiptBinding
 import android.net.Uri
 import android.telephony.SmsManager
 import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
 
 import com.gun0912.tedpermission.PermissionListener
@@ -38,12 +39,14 @@ class ReceiptActivity : AppCompatActivity() {
             sms.sendTextMessage(
                 phoneNumber,
                 null,
-                binding.editContextText.text.toString()
+                "주민등록번호 앞자리 "+binding.birthdayText.text.toString()+"\n"+binding.name.text.toString()+"님께서 진료를 신청하셨습니다. " + "증상은 다음과 같습니다.\n"+binding.editContextText.text.toString()
                 ,
                 null,
                 null
             )
-            //Toast.makeText(this@MainActivity, "Permission Granted", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ReceiptActivity, "진료신청이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+            finish()
+
         }
 
         override fun onPermissionDenied(deniedPermissions: List<String>) {
@@ -195,6 +198,7 @@ class ReceiptActivity : AppCompatActivity() {
                     .setDeniedMessage("권한 설정에 동의하지 않으시면 예약 문자를 보내실 수 없습니다.")
                     .setPermissions(Manifest.permission.SEND_SMS)
                     .check();
+
 
             }
         }

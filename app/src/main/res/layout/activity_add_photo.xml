@@ -7,36 +7,21 @@
     tools:context=".AddPhotoActivity"
     android:background="@color/colorWhite">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="35dp">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/logo_title"/>
-    </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
-        android:id="@+id/toolbarDivision"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/toolbar"
-        android:background="@color/colorDivision"/>
-    
     <ImageView
         android:id="@+id/addphotoImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_margin="8dp"
-        android:layout_below="@+id/toolbarDivision"/>
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editText"
         android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbarDivision"
         android:layout_toRightOf="@+id/addphotoImage">
 
         <EditText
