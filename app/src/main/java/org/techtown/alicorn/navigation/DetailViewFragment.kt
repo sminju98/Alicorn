@@ -1,6 +1,7 @@
 package org.techtown.alicorn.navigation
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,19 +12,25 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import org.techtown.alicorn.AddPhotoActivity
 import org.techtown.alicorn.databinding.FragmentDetailBinding
 import org.techtown.alicorn.databinding.ItemDetailBinding
 import org.techtown.alicorn.navigation.model.ContentDTO
+import java.util.*
 
 class DetailViewFragment : Fragment(){
     var firestore : FirebaseFirestore? = null
     val auth = Firebase.auth
+    var PICK_IMAGE_FROM_ALBUM =0
+    var storage : FirebaseStorage? = null
+    var photoUri : Uri? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

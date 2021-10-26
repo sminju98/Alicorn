@@ -458,7 +458,7 @@
             android:backgroundTint="#aaaaaa"
             android:enabled="false"
             android:onClick="onClick"
-            android:text="진료받기"
+            android:text="문자로 진료예약하기"
             android:textColor="#ffffff"
             android:textSize="25sp"
             android:textStyle="bold"></Button>

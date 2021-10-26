@@ -38,7 +38,8 @@ class ReceiptActivity : AppCompatActivity() {
             sms.sendTextMessage(
                 phoneNumber,
                 null,
-                binding.editContextText.text.toString(),
+                binding.editContextText.text.toString()
+                ,
                 null,
                 null
             )
