@@ -77,61 +77,21 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="18sp"
                     android:textStyle="bold" />
+                <Button
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/testButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/searchButton"
+                    android:layout_marginEnd="35dp"
+                    android:backgroundTint="#5ea7ff"
+                    android:text="결제하기"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="50dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:letterSpacing="-0.02"
-                android:text="진료 과목으로 선택하기"
-                android:textColor="#3b6092"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginEnd="24dp"
-                    android:backgroundTint="#5ea7ff"
-                    android:text="내과"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginEnd="24dp"
-                    android:backgroundTint="#5ea7ff"
-                    android:text="피부과"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:backgroundTint="#5ea7ff"
-                    android:text="기타"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>
 

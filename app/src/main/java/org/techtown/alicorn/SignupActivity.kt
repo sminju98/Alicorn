@@ -51,7 +51,7 @@ class SignupActivity : AppCompatActivity() {
         )
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "회원가입에 성공하셨습니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "회원가입에 성공하셨습니다. 이메일 인증을 받아주세요.", Toast.LENGTH_LONG).show()
                     updateUserData()
                     //계정 생성
                 } else if (task.exception?.message.isNullOrEmpty()) {
