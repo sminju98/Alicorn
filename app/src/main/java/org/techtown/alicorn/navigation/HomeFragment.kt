@@ -1,7 +1,6 @@
 package org.techtown.alicorn.navigation
 
 import android.content.Intent
-import com.iamport.sdk.domain.core.Iamport
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,19 +19,13 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        Iamport.create(this)
         var view = FragmentHomeBinding.inflate(inflater, container, false)
-        view.searchButton.setOnClickListener {
-            startActivity(Intent(getActivity(), SearchActivity::class.java))
-        }
 
 
         view.treatButton.setOnClickListener {
             startActivity(Intent(getActivity(), SearchActivity::class.java))
         }
 
-        view.testButton.setOnClickListener {
-        }
         return view.root
     }
 }
