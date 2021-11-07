@@ -42,6 +42,8 @@ android {
 
 dependencies {
 
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    implementation "com.airbnb.android:lottie:4.2.0"
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
