@@ -2,6 +2,7 @@ package org.techtown.alicorn
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.core.app.ActivityCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -44,6 +45,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
             1
         )
+
+        Log.e("token",App.token.toString())
 
         //디폴트 화면
         binding.bottomNavigation.selectedItemId = R.id.actionHome

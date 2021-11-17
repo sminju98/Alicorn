@@ -117,16 +117,14 @@ class DetailViewFragment : Fragment() {
             holder.binding.detailviewitemExplainTextview.text = contentDTOs!![position].explain
 
             holder.binding.root.setOnClickListener {
-                Toast.makeText(context,"click",Toast.LENGTH_SHORT).show()
-                val intent =Intent(context,PhotoViewActivity::class.java)
-                intent.putExtra(PhotoViewActivity.IMAGEURL,contentDTOs!![position].imageUrl)
+                Toast.makeText(context, "click", Toast.LENGTH_SHORT).show()
+                val intent = Intent(context, PhotoViewActivity::class.java)
+                intent.putExtra(PhotoViewActivity.IMAGEURL, contentDTOs!![position].imageUrl)
                 startActivity(intent)
-}
             }
-            //ProfileImage
-            // Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl).into(holder.binding.detailviewitemProfileImage)
-
         }
+        //ProfileImage
+        // Glide.with(holder.itemView.context).load(contentDTOs!![position].imageUrl).into(holder.binding.detailviewitemProfileImage)
 
     }
 

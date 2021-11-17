@@ -17,7 +17,8 @@
         <entry key="app/src/main/res/layout/activity_agree.xml" value="0.23777173913043478" />
         <entry key="app/src/main/res/layout/activity_doctor.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_end.xml" value="0.38177083333333334" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2777164717110979" />
+        <entry key="app/src/main/res/layout/activity_find_password.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.14635416666666667" />
         <entry key="app/src/main/res/layout/activity_notice.xml" value="0.1203125" />
@@ -28,6 +29,7 @@
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_web_view.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/diolog_loti.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_grid.xml" value="0.20244565217391305" />

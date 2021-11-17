@@ -16,6 +16,8 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import org.techtown.alicorn.data.remote.api.CallApi
+import org.techtown.alicorn.data.remote.response.user.login.LoginResponse
 import org.techtown.alicorn.databinding.ActivityLoginBinding
 import org.techtown.alicorn.navigation.model.UserDTO
 
@@ -42,6 +44,11 @@ class LoginActivity : AppCompatActivity() {
         binding.googleLoginButton.setOnClickListener {
             //첫번째 단계
             googleLogin()
+        }
+
+        binding.findPw.setOnClickListener{
+            startActivity(Intent(this,FindPasswordActivity::class.java))
+
         }
 
         var gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -136,8 +143,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signinEmail() {
-        if (binding.emailEditText.text.toString().isNullOrEmpty() ||
-            binding.passwordEditText.text.toString().isNullOrEmpty()
+        if (binding.emailEditText.text.toString().isEmpty() ||
+            binding.passwordEditText.text.toString().isEmpty()
         ) {
             return
         }
@@ -148,7 +155,19 @@ class LoginActivity : AppCompatActivity() {
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     //로그인 성공
-                    moveMainpage(task.result?.user)
+                        CallApi().userLogin(
+                            binding.emailEditText.text.toString(),
+                            binding.passwordEditText.text.toString()
+                        ) { b: Boolean, s: String, loginResponse: LoginResponse? ->
+                            Log.e("userLogin", "$b $s $loginResponse")
+                            if (b && loginResponse != null && loginResponse.success) {
+                                App.token = loginResponse.data
+                                moveMainpage(task.result?.user)
+                            } else {
+                                //로그인 실패, 에러메세지
+                                Toast.makeText(this, "로그인 실패. 고객센터에 문의해주세요.", Toast.LENGTH_LONG).show()
+                            }
+                        }
                 } else {
                     //로그인 실패, 에러메세지
                     Toast.makeText(this, "로그인 실패. 이메일과 비밀번호를 확인해주세요", Toast.LENGTH_LONG).show()
@@ -164,5 +183,4 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun onClick(view: android.view.View) {}
 }
