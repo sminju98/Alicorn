@@ -9,7 +9,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-141dp"
+        tools:layout_editor_absoluteY="-177dp">
 
         <Button
             android:id="@+id/backButton"
@@ -20,32 +22,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="회원가입"
+            android:layout_marginLeft="14dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="33dp"
-            android:layout_marginLeft="14dp"
+            android:text="회원가입"
             android:textColor="#2c2929"
             android:textSize="36sp"
             android:textStyle="normal" />
 
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginBottom="40dp"
-        android:text="모든 약관에 모두 확인, 동의합니다"
-        android:textSize="16sp" />
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginBottom="40dp"
+            android:text="모든 약관에 모두 확인, 동의합니다"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/checkBox1"
@@ -61,7 +63,8 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
+
             <ImageView
                 android:id="@+id/arrow1"
                 android:layout_width="wrap_content"
@@ -70,15 +73,16 @@
                 android:layout_marginEnd="12dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:onClick="onClick"
-                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
             <CheckBox
                 android:id="@+id/checkBox2"
                 android:layout_width="wrap_content"
@@ -87,12 +91,14 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="16dp"
-                android:textSize="12sp"
-                android:text="[필수] 개인정보 처리방침 동의"/>
+                android:text="[필수] 개인정보 처리방침 동의"
+                android:textSize="12sp" />
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
+
             <ImageView
                 android:id="@+id/arrow2"
                 android:layout_width="wrap_content"
@@ -101,14 +107,15 @@
                 android:layout_marginEnd="12dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:onClick="onClick"
-                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
             <CheckBox
                 android:id="@+id/checkBox3"
                 android:layout_width="wrap_content"
@@ -117,12 +124,14 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="16dp"
-                android:textSize="12sp"
-                android:text="[필수] 개인 민감 (건강)정보 처리방침 동의" />
+                android:text="[필수] 개인 민감 (건강)정보 처리방침 동의"
+                android:textSize="12sp" />
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
+
             <ImageView
                 android:id="@+id/arrow3"
                 android:layout_width="wrap_content"
@@ -131,46 +140,48 @@
                 android:layout_marginEnd="12dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:onClick="onClick"
-                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
         </LinearLayout>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginBottom="8dp">
-
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:text="[필수] 고유식별정보 수집동의 및 처리방침"
-        android:textSize="12sp" />
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <ImageView
-        android:id="@+id/arrow4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginEnd="12dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:onClick="onClick"
-        android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
-    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:text="[필수] 고유식별정보 수집동의 및 처리방침"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/arrow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="onClick"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
             <CheckBox
                 android:id="@+id/checkBox5"
                 android:layout_width="wrap_content"
@@ -179,12 +190,14 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="16dp"
-                android:textSize="12sp"
-                android:text="[선택] 알림 이용" />
+                android:text="[선택] 알림 이용"
+                android:textSize="12sp" />
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
+
             <ImageView
                 android:id="@+id/arrow5"
                 android:layout_width="wrap_content"
@@ -193,12 +206,13 @@
                 android:layout_marginEnd="12dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:onClick="onClick"
-                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
         </LinearLayout>
+
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/emailSignupButton"
@@ -209,10 +223,10 @@
             android:layout_marginBottom="35dp"
             android:background="@drawable/radius_24dp_corner"
             android:backgroundTint="#aaaaaa"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
             android:enabled="false"
-            android:text="다음" />
+            android:text="다음"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

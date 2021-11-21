@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/ellipse_18.xml" value="0.158203125" />
         <entry key="app/src/main/res/drawable/gradation.xml" value="0.19074074074074074" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_box_24.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.1328125" />
         <entry key="app/src/main/res/drawable/icon_login_google_4.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable/img_logo.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable/radius_24dp_corner.xml" value="0.25416666666666665" />
@@ -17,7 +18,7 @@
         <entry key="app/src/main/res/layout/activity_agree.xml" value="0.23777173913043478" />
         <entry key="app/src/main/res/layout/activity_doctor.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_end.xml" value="0.38177083333333334" />
-        <entry key="app/src/main/res/layout/activity_find_password.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_find_password.xml" value="0.38177083333333334" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.14635416666666667" />
@@ -34,7 +35,7 @@
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_grid.xml" value="0.20244565217391305" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="10.0" />
+        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/item_detail.xml" value="0.23854166666666668" />
         <entry key="app/src/main/res/layout/item_doctor.xml" value="0.23854166666666668" />

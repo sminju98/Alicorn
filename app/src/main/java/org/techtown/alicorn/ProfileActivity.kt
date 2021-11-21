@@ -34,7 +34,7 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
                 if (b && userDataResponse != null && userDataResponse.success) {
                     showData(userDataResponse)
                 } else {
-                    Toast.makeText(this, "유저 데이터 불러오기 실", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "유저 데이터 불러오기 실패", Toast.LENGTH_SHORT).show()
                 }
             }
         }
