@@ -43,9 +43,9 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener {
     private fun showData(data: UserDataResponse) {
         val todayCalendar = Calendar.getInstance()
         val birthDatCalendar = Calendar.getInstance()
-        birthDatCalendar.set(Calendar.YEAR,data.data.birthday.substring(0,4).toInt())
-        birthDatCalendar.set(Calendar.MONTH,data.data.birthday.substring(5,7).toInt()-1)
-        birthDatCalendar.set(Calendar.DAY_OF_MONTH,data.data.birthday.substring(8,10).toInt())
+        birthDatCalendar.set(Calendar.YEAR,data.data.birthday?.substring(0,4)?.toInt()?:1990)
+        birthDatCalendar.set(Calendar.MONTH,data.data.birthday?.substring(5,7)?.toInt()?:1-1)
+        birthDatCalendar.set(Calendar.DAY_OF_MONTH,data.data.birthday?.substring(8,10)?.toInt()?:1)
 
         var isAfter = if(todayCalendar.get(Calendar.MONTH)>birthDatCalendar.get(Calendar.MONTH)){
             true

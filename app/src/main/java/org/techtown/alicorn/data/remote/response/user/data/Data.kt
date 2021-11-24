@@ -1,21 +1,21 @@
 package org.techtown.alicorn.data.remote.response.user.data
 
 data class Data(
-    val allergies: List<String>,
-    val birthday: String,
-    val countryOfResidence: String,
-    val createdAt: String,
-    val drinking: Any,
-    val email: String,
-    val familyHistories: List<Any>,
-    val id: Int,
-    val kakaoId: String,
-    val name: String,
-    val password: String,
-    val phoneNumber: String,
-    val sex: Int,
-    val smoking: Boolean,
-    val underlyingDiseases: List<Any>,
-    val updatedAt: String,
-    val useOfDrugs: List<String>
+    var allergies: List<String>?=null,
+    var birthday: String?=null,
+    var countryOfResidence: String?=null,
+    var createdAt: String?=null,
+    var drinking: String?=null,
+    var email: String?=null,
+    var familyHistories: List<String>?=null,
+    var id: Int?=null,
+    var kakaoId: String?=null,
+    var name: String?=null,
+    var password: String?=null,
+    var phoneNumber: String?=null,
+    var sex: Int?=null,
+    var smoking: Boolean?=null,
+    var underlyingDiseases: List<String>?=null,
+    var updatedAt: String?=null,
+    var useOfDrugs: List<String>?=null
 )

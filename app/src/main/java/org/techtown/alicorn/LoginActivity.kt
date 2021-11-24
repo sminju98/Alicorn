@@ -46,8 +46,8 @@ class LoginActivity : AppCompatActivity() {
             googleLogin()
         }
 
-        binding.findPw.setOnClickListener{
-            startActivity(Intent(this,FindPasswordActivity::class.java))
+        binding.findPw.setOnClickListener {
+            startActivity(Intent(this, FindPasswordActivity::class.java))
 
         }
 
@@ -58,44 +58,42 @@ class LoginActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
     }
 
-    private fun signtestinEmail() {
-
-    }
-
-
     public override fun onResume() {
         super.onResume()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth?.currentUser
         if (currentUser != null) {
-            if(currentUser.isEmailVerified==true) {
+            if (currentUser.isEmailVerified == true) {
                 moveMainpage(currentUser)
-            }
-            else {
+            } else {
                 Toast.makeText(this, "회원가입을 위해 이메일 인증을 부탁드립니다.", Toast.LENGTH_LONG).show()
             }
 
-//            db.collection("users").document(currentUser.uid).get().addOnSuccessListener {
-//                val userData = it.toObject<UserDTO>()
-//                   val provider = try {
-//                        currentUser.providerData[1].providerId
-//                    } catch (e: Exception) {
-//                        currentUser.providerData[0].providerId
-//                    }
-//                    Log.e("${currentUser.uid}", userData?.activation.toString())
-//
-//                    if (provider == "password") {
-//                        if (userData?.activation == true) {
-//                            moveMainpage(currentUser)
-//                        } else {
-//                        }
-//                    } else {
-//
-//                          moveMainpage(currentUser)
-//                    }
-//                    db.collection("users").document(currentUser.uid).update()
-//                      moveMainpage(currentUser)
+            db.collection("users").document(currentUser.uid).get().addOnSuccessListener {
+                val userData = it.toObject<UserDTO>()
+                val provider = try {
+                    currentUser.providerData[1].providerId
+                } catch (e: Exception) {
+                    currentUser.providerData[0].providerId
                 }
+                //Log.e("${currentUser.uid}", userData?.activation.toString())
+
+                if (provider == "password") {
+                    if (userData?.activation == true) {
+                        moveMainpage(currentUser)
+                    } else {
+
+
+                    }
+
+                } else {
+
+                    moveMainpage(currentUser)
+                }
+                db.collection("users").document(currentUser.uid).update("activation",true)
+                moveMainpage(currentUser)
+            }
+        }
     }
 
     fun googleLogin() {
@@ -156,8 +154,7 @@ class LoginActivity : AppCompatActivity() {
 //                                //로그인 실패, 에러메세지
 //                                Toast.makeText(this, "로그인 실패. 고객센터에 문의해주세요.", Toast.LENGTH_LONG).show()
 //                            }
-                        }
-                else {
+                } else {
                     //로그인 실패, 에러메세지
                     Toast.makeText(this, "로그인 실패. 이메일과 비밀번호를 확인해주세요", Toast.LENGTH_LONG).show()
                 }
@@ -165,11 +162,13 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+
     fun moveMainpage(user: FirebaseUser?) {
         if (user != null) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }
-
 }
+
+

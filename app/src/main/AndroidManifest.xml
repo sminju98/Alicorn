@@ -15,6 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alicorn">
         <activity
+            android:name=".Signup2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".SignUp2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".SignUpInfoActivity"
+            android:exported="true" />
+        <activity
             android:name=".FindPasswordActivity"
             android:exported="true" />
         <activity

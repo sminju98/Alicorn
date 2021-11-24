@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setContentView(binding.root)
 
-        startTimer()
+        //startTimer()
     }
 
     private fun startTimer() {
