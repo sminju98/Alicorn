@@ -4,12 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import org.techtown.alicorn.databinding.ActivitySplashBinding
 import android.widget.Toast
 
 import com.gun0912.tedpermission.PermissionListener
-
-
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class SplashActivity : AppCompatActivity() {
@@ -21,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setContentView(binding.root)
 
-        //startTimer()
+        startTimer()
     }
 
     private fun startTimer() {

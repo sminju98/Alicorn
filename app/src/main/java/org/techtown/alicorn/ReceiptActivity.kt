@@ -21,7 +21,10 @@ import gun0912.tedimagepicker.builder.TedImagePicker
 class ReceiptActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReceiptBinding
     private val phoneNumber: String by lazy { intent.getStringExtra(PHONE_NUMBER)?:"" }
+    private val price: String by lazy { intent.getStringExtra(PRICE)?:"" }
+    private val doctorName: String by lazy { intent.getStringExtra(DOCTOR_NAME)?:"" }
     private val photoList: ArrayList<Uri> = ArrayList()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +48,6 @@ class ReceiptActivity : AppCompatActivity() {
                 null
             )
             Toast.makeText(this@ReceiptActivity, "진료신청이 완료되었습니다.", Toast.LENGTH_SHORT).show()
-            finish()
 
         }
 
@@ -200,6 +202,16 @@ class ReceiptActivity : AppCompatActivity() {
                     .check();
 
 
+                val intent = Intent(this, PayActivity::class.java)
+                intent.putExtra(PRICE, price)
+                intent.putExtra(PATIENT, binding.name.text.toString())
+                intent.putExtra(DOCTOR_NAME, doctorName)
+                startActivity(intent)
+
+                finish()
+
+
+
             }
         }
     }
@@ -234,6 +246,9 @@ class ReceiptActivity : AppCompatActivity() {
 
     companion object {
 
+        const val PRICE = "PRICE"
         const val PHONE_NUMBER = "PHONE_NUMBER"
+        const val DOCTOR_NAME = "DOCTOR_NAME"
+        const val PATIENT = "PATIENT"
     }
 }

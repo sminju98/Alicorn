@@ -95,7 +95,16 @@
                     android:textStyle="normal" />
 
                 <TextView
-                    android:id="@+id/keyword"
+                    android:id="@+id/majorTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="피부과 전문의"
+                    android:textColor="#99879d"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tag"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="#피부과 #내과 #가정의학과"
@@ -146,7 +155,7 @@
                 android:fontFamily="sans-serif"
                 android:text="우리 병원은 최상의 인재풀을 보유하고 있습니다.\n \n성심성의껏 진료하는 원장, 송민주"
                 android:textColor="#000000"
-                android:textSize="14sp"
+               android:textSize="14sp"
                 android:textStyle="normal" />
 
             <TextView
@@ -155,10 +164,44 @@
                 android:fontFamily="sans-serif"
                 android:lineSpacingExtra="7sp"
                 android:layout_marginVertical="15dp"
-                android:text="영업 시간"
+                android:text="경력"
                 android:textColor="#222222"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/careerTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ExplainTitle"
+                android:fontFamily="sans-serif"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="7sp"
+                android:text="전화번호"
+                android:textColor="#222222"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/telephoneTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ExplainTitle"
+                android:fontFamily="sans-serif"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="normal" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -251,6 +294,30 @@
                     android:textStyle="normal"
                     android:text="공휴일  : 09 : 00 ~ 21: 00" />
             </GridLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="7sp"
+                android:layout_marginVertical="15dp"
+                android:text="진료비"
+                android:textColor="#222222"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ExplainTitle"
+                android:fontFamily="sans-serif"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
 
             <Button
                 android:id="@+id/receiptBtn"

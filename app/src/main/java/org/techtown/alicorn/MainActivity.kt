@@ -8,6 +8,16 @@ import androidx.core.app.ActivityCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.techtown.alicorn.databinding.ActivityMainBinding
 import org.techtown.alicorn.navigation.*
+import com.google.firebase.auth.GetTokenResult
+
+import com.google.android.gms.tasks.OnCompleteListener
+
+import com.google.firebase.auth.FirebaseAuth
+
+import com.google.firebase.auth.FirebaseUser
+
+
+
 
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -46,9 +56,22 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             1
         )
 
-        Log.e("token",App.token.toString())
-
         //디폴트 화면
         binding.bottomNavigation.selectedItemId = R.id.actionHome
+
+        val mUser = FirebaseAuth.getInstance().currentUser
+        mUser.getIdToken(true)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val idToken: String? = task?.result?.getToken()
+                    if (idToken != null) {
+                        Log.e("token",idToken)
+                    }
+                    // Send token to your backend via HTTPS
+                    // ...
+                } else {
+                    // Handle error -> task.getException();
+                }
+            }
     }
 }
